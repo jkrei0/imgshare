@@ -173,6 +173,11 @@ io.on('connection', (socket) => {
 
         commenters[data.messageId + '::' + id] = socket;
 
+        if (!messages[data.messageId]) {
+            console.log('Message not found:', data.messageId);
+            return;
+        }
+
         messages[data.messageId].comments[id] = {
             messageId: data.messageId,
             id: id,
