@@ -1,0 +1,237 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* List Item Styles */
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+    font-family: sans-serif;
+    font-size: 1.15em;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+li .name {
+    font-weight: bold;
+}
+
+li .approved::before {
+    content: '(Approved) ';
+    color: green;
+}
+
+li .unapproved::before {
+    content: '(Awaiting approval) ';
+    color: brown;
+}
+
+li img {
+
+    background: repeating-conic-gradient(#ddd 0% 25%, transparent 0% 50%) 50% / 20px 20px;
+
+
+    margin-block: 10px;
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+li:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+li form button {
+    margin: 2px;
+    padding-block: 5px;
+}
+li form input[type=text] {
+    width: 300px;
+    padding-block: 7px;
+    max-width: 90%;
+    margin-bottom: 0;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="file"] {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 400px;
+}
+
+input[disabled] {
+    cursor: not-allowed;
+    background: #ccc;
+    color: black;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+button.dislike {
+    background: #ddd;
+    color: black;
+}
+button.small {
+    background: #ddd;
+    color: black;
+    font-size: 0.8em;
+    padding: 3px 10px;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+button.dislike:hover, button.small:hover {
+    background: #ccc;
+}
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+.userslist {
+    background: #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 0.8em;
+    opacity: 0.8;
+    display: inline-block;
+    margin-bottom: 7px;
+}
+
+#accountOptions {
+    margin-top: 4em;
+    display: none;
+}
+
+/* Details/Summary Styles */
+details, .comment-container {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    margin-inline: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.comment-container {
+    margin-top: 7px;
+    width: calc(100% - 20px);
+    margin-inline: 0;
+}
+.comment-container h3 {
+    margin: 0;
+    padding: 10px;
+    font-size: 1em;
+    background: #eee;
+}
+.comment {
+    padding: 10px 15px;
+    display: block;
+}
+.comment.removed {
+    color: red;
+    font-size: 0.8em;
+}
+
+details form {
+    padding: 20px;
+    align-items: flex-start;
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+
+    padding: 7px;
+    padding-left: 1.5em;
+    width: 100%;
+    max-width: 400px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary:before {
+    content: '+';
+    font-size: 1.3em;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    padding-inline: 5px;
+    color: #888;
+    font-weight: bold;
+}
+
+details[open] summary:before {
+    top: 0;
+    left: 2px;
+    content: '-';
+}

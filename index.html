@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="/script.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="pageTitle">Image Upload</h1>
+        <div id="usernameForm">
+            <form onsubmit="return setUsername()">
+                <label id="usernameLabel">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" autocomplete="off" />
+                <button id="usernameButton">Set Username</button>
+            </form>
+        </div>
+        <div id="chatForm" style="display: none;">
+            <form onsubmit="return sendMessage()">
+                <label>Caption</label>
+                <input type="text" id="message" placeholder="Caption" autocomplete="off" required><br>
+                <label>Image</label>
+                <input type="file" id="imageUpload" accept="image/*" required><br>
+                <button>Post Image</button>
+            </form>
+        </div>
+    </header>
+
+    <ul id="notLoggedIn">
+        <li>Log in to view posts</li>
+    </ul>
+    <ul id="messages-empty">
+        <li>No posts yet!</li>
+    </ul>
+    <ul id="messages">
+        
+    </ul>
+
+    <footer id="accountOptions">
+        <details>
+            <summary>User Options</summary>
+
+            <form onsubmit="return setUsername(true)">
+                <label id="usernameLabel">Change Username</label>
+                <input type="text" id="usernameChange" placeholder="New Username" autocomplete="off" />
+                <button id="usernameButton" type="submit">Set Username</button>
+                <button type="button" style="margin-top:20px;" class="small"
+                    onclick="Cookies.remove('password'); Cookies.remove('username'); location.reload();">Log Out</button>
+            </form>
+        </details>
+    </footer>
+</body>
+
+</html>
