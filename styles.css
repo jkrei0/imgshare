@@ -25,8 +25,13 @@ h1 {
 }
 
 ul {
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
     padding: 0;
+    width: calc(100% - 40px);
 }
 
 /* List Item Styles */
@@ -34,6 +39,8 @@ li {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 800px;
+    max-width: 100%;
     list-style: none;
     font-family: sans-serif;
     font-size: 1.15em;
@@ -45,6 +52,7 @@ li {
 
 li .name {
     font-weight: bold;
+    color: #333;
 }
 
 li .approved::before {
@@ -58,10 +66,7 @@ li .unapproved::before {
 }
 
 li img {
-
     background: repeating-conic-gradient(#ddd 0% 25%, transparent 0% 50%) 50% / 20px 20px;
-
-
     margin-block: 10px;
     max-width: 100%;
     max-height: 200px;
@@ -82,14 +87,18 @@ form {
 
 li form {
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    max-width: 100%;
 }
+
 li form button {
     margin: 2px;
     padding-block: 5px;
 }
+
 li form input[type=text] {
     width: 300px;
     padding-block: 7px;
@@ -105,6 +114,7 @@ label {
 input[type="text"],
 input[type="file"] {
     margin-bottom: 10px;
+    font-size: 16px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -133,6 +143,7 @@ button.dislike {
     background: #ddd;
     color: black;
 }
+
 button.small {
     background: #ddd;
     color: black;
@@ -144,14 +155,16 @@ button.small {
 button:hover {
     background-color: #45a049;
 }
-button.dislike:hover, button.small:hover {
+
+button.dislike:hover,
+button.small:hover {
     background: #ccc;
 }
+
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
-
 
 .userslist {
     background: #ddd;
@@ -170,7 +183,8 @@ button:disabled {
 }
 
 /* Details/Summary Styles */
-details, .comment-container {
+details,
+.comment-container {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     margin-inline: 10px;
@@ -179,20 +193,29 @@ details, .comment-container {
 }
 
 .comment-container {
+    margin: 0;
     margin-top: 7px;
-    width: calc(100% - 20px);
-    margin-inline: 0;
+    width: 100%;
 }
+
 .comment-container h3 {
     margin: 0;
     padding: 10px;
     font-size: 1em;
-    background: #eee;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
 }
+
 .comment {
-    padding: 10px 15px;
     display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
 }
+
+.comment:last-child {
+    border-bottom: none;
+}
+
 .comment.removed {
     color: red;
     font-size: 0.8em;
@@ -208,7 +231,6 @@ summary {
     cursor: pointer;
     outline: none;
     position: relative;
-
     padding: 7px;
     padding-left: 1.5em;
     width: 100%;
@@ -234,4 +256,11 @@ details[open] summary:before {
     top: 0;
     left: 2px;
     content: '-';
+}
+
+.comment-container {
+    display: block;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
