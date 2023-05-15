@@ -223,7 +223,7 @@ socket.on('chat message', (data) => {
                     alert('You have been muted!');
                     return false;
                 }
-                
+
                 if (!commentInput.value.trim()) return false;
 
                 socket.emit('comment message', {
@@ -261,6 +261,7 @@ socket.on('comment message', (data) => {
             const deleteButton = document.createElement('button');
             deleteButton.innerHTML = 'Remove';
             deleteButton.setAttribute('type', 'button');
+            deleteButton.classList.add('dislike');
             deleteButton.classList.add('small');
             deleteButton.onclick = () => {
                 socket.emit('delete comment', {

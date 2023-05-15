@@ -7,6 +7,9 @@ const io = require('socket.io')(server);
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
+app.get('/presenter', (req, res) => {
+    res.sendFile(__dirname + '/presenter.html');
+});
 
 app.get('/styles.css', (req, res) => {
     res.sendFile(__dirname + '/styles.css'); 
@@ -14,6 +17,14 @@ app.get('/styles.css', (req, res) => {
 app.get('/script.js', (req, res) => {
     res.set('Content-Type', 'text/javascript');
     res.sendFile(__dirname + '/script.js');
+});
+app.get('/confetti.js', (req, res) => {
+    res.set('Content-Type', 'text/javascript');
+    res.sendFile(__dirname + '/confetti.js');
+});
+app.get('/presenter.js', (req, res) => {
+    res.set('Content-Type', 'text/javascript');
+    res.sendFile(__dirname + '/presenter.js');
 });
 
 //
@@ -149,7 +160,7 @@ io.on('connection', (socket) => {
             return;
         }
         if (senders[id].isAdmin) {
-            console.log('Cannot mute admin:', id, socket[id].username);
+            console.log('Cannot mute admin:', id);
             return;
         }
 
@@ -169,7 +180,7 @@ io.on('connection', (socket) => {
             return;
         }
 
-        const id = Math.floor(Math.random() * 10000000000);
+        const id = Date.now() + '#' + Math.floor(Math.random() * 100);
 
         commenters[data.messageId + '::' + id] = socket;
 
@@ -198,7 +209,7 @@ io.on('connection', (socket) => {
             return;
         }
         if (commenters[data.messageId + '::' + data.id].isAdmin) {
-            console.log('Cannot mute admin:', data.messageId + '::' + data.id, socket[id].username);
+            console.log('Cannot mute admin:', data.messageId + '::' + data.id);
             return;
         }
 
@@ -221,6 +232,10 @@ io.on('connection', (socket) => {
 
         delete messages[data.messageId].comments[data.id];
         io.emit('comment message', messages[data.messageId]);
+    });
+
+    socket.on('confetti', () => {
+        io.emit('confetti');
     });
 
 });

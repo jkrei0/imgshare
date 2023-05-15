@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="/presenter.js" type="text/javascript"></script>
+    <script src="/confetti.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body class="presentation">
+    <header>
+        <h1 id="pageTitle">Image Upload</h1>
+        <div id="usernameForm">
+            <form onsubmit="return setUsername()">
+                <button id="usernameButton">Open Presentation</button>
+            </form>
+        </div>
+    </header>
+    <ul id="messages" style="display: none;" class="presenter">
+        
+    </ul>
+    <details open><summary>Controls</summary>
+        <button onclick="next()" id="nextButton">Next</button>
+    </details>
+</body>
+
+</html>

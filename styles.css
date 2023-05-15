@@ -1,20 +1,27 @@
 /* General Styles */
 body {
     margin: 0;
+    margin-bottom: 40px;
     padding: 0;
-    font-family: sans-serif;
+    background: #F5F8FA;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body.presentation {
+    font-size: 1.5em;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
 }
 
 /* Header Styles */
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #d5e8f5;
+    border-bottom: 1px solid #ccc;
+    color: #000;
     padding: 20px;
     text-align: center;
 }
@@ -36,18 +43,20 @@ ul {
 
 /* List Item Styles */
 li {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 800px;
+    width: 600px;
     max-width: 100%;
     list-style: none;
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 1.15em;
     padding: 10px;
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background: #fff;
 }
 
 li .name {
@@ -74,10 +83,6 @@ li img {
     border-radius: 5px;
 }
 
-li:nth-child(even) {
-    background: #f9f9f9;
-}
-
 /* Form Styles */
 form {
     display: flex;
@@ -96,7 +101,6 @@ li form {
 
 li form button {
     margin: 2px;
-    padding-block: 5px;
 }
 
 li form input[type=text] {
@@ -117,6 +121,7 @@ input[type="file"] {
     font-size: 16px;
     padding: 5px;
     border: 1px solid #ccc;
+    background: #fff;
     border-radius: 3px;
     width: 100%;
     max-width: 400px;
@@ -129,45 +134,46 @@ input[disabled] {
 }
 
 button {
-    padding: 8px 15px;
-    background-color: #4caf50;
+    padding: 5px 15px;
+    background-color: #1DA1F2;
     color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     font-size: 1em;
-    margin-right: 10px;
 }
-
-button.dislike {
-    background: #ddd;
-    color: black;
+button:not(:first-of-type) {
+    margin-left: 10px;
 }
-
 button.small {
-    background: #ddd;
+    background: #E5E7EB;
     color: black;
     font-size: 0.8em;
     padding: 3px 10px;
     margin-left: 10px;
 }
-
-button:hover {
-    background-color: #45a049;
+button.dislike {
+    background: #E0245E;
+    color: white;
 }
 
-button.dislike:hover,
+button:hover {
+    background-color: #1A91DA;
+}
 button.small:hover {
-    background: #ccc;
+    background: #C4C7CA;
+}
+button.dislike:hover {
+    background: #bd1046;
 }
 
 button:disabled {
-    background-color: #ccc;
+    background-color: #C4C7CA;
     cursor: not-allowed;
 }
 
 .userslist {
-    background: #ddd;
+    background: #F5F8FA;
     padding: 5px;
     border-radius: 5px;
     color: #000;
@@ -187,9 +193,18 @@ details,
 .comment-container {
     margin-bottom: 10px;
     border: 1px solid #ccc;
+    background: #fff;
     margin-inline: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+.comment-container.presentation {
+    font-size: 0.6em;
+}
+
+details {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .comment-container {
@@ -201,8 +216,9 @@ details,
 .comment-container h3 {
     margin: 0;
     padding: 10px;
+    border-radius: 4px;
     font-size: 1em;
-    background: #f5f5f5;
+    background: #F5F8FA;
     border-bottom: 1px solid #ccc;
 }
 
